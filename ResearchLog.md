@@ -62,3 +62,97 @@ El Día 1 estará completo cuando tenga:
 - Un primer archivo de Python creado.
 - Un clasificador simple de riesgo funcionando.
 - Un commit guardado en GitHub con el avance del día.
+
+
+---
+
+## Día 2 - Prueba de MIRA v0.1 e inicio de MIRA v0.2
+
+Fecha: 18 de mayo de 2026
+
+Objetivo del día:
+Revisar la estructura del repositorio, confirmar que MIRA v0.1 funciona correctamente y comenzar a proyectar la versión MIRA v0.2.
+
+Qué hice:
+- Abrí y trabajé con el repositorio MIRA en VSCode.
+- Revisé la estructura inicial del proyecto.
+- Confirmé que el proyecto cuenta con las carpetas principales:
+  - data
+  - docs
+  - hardware
+  - images
+  - notebooks
+  - reports
+  - src
+- Confirmé que el proyecto ya tiene archivos importantes:
+  - README.md
+  - ResearchLog.md
+  - .gitignore
+- Revisé el contenido del README.md, donde MIRA aparece presentado como un proyecto de investigación e ingeniería ambiental.
+- Revisé el ResearchLog.md, que funciona como bitácora técnica del proyecto.
+- Detecté que había una carpeta src dentro de otra carpeta src.
+- Aclaré que no conviene crear una carpeta src para cada versión, sino mantener una sola carpeta src principal.
+- Dejé la estructura del proyecto corregida, con una sola carpeta principal src.
+- Confirmé que la estructura del proyecto quedó bien organizada.
+- Confirmé que los cambios se subieron correctamente a GitHub.
+- Revisé el código de mira_v0_1.py.
+- Analicé la lógica del código: el programa pide datos de una zona, calcula un puntaje de riesgo y clasifica el resultado como riesgo bajo, medio o alto.
+- Probé el código de MIRA v0.1 y confirmé que funcionó correctamente.
+- Dejé encaminado el cierre de MIRA v0.1 como primera versión base del proyecto.
+- Comencé la planificación inicial de MIRA v0.2.
+- Definí que MIRA v0.2 se enfocará en empezar a trabajar con datos climáticos simples, especialmente mediante archivos CSV.
+- Acordé que la v0.2 marcará el paso desde un clasificador manual hacia un sistema que pueda leer datos organizados y analizarlos.
+
+Código probado:
+El archivo probado fue:
+
+src/mira_v0_1.py
+
+Descripción del funcionamiento:
+El programa solicita información básica sobre una zona piloto:
+- nombre de la zona;
+- lluvia acumulada en milímetros;
+- cercanía a un arroyo, río o canal;
+- si la zona es baja o plana.
+
+A partir de esos datos, el programa calcula un puntaje simple de riesgo y clasifica el nivel como:
+- bajo;
+- medio;
+- alto.
+
+Resultado de la prueba:
+El código de MIRA v0.1 se ejecutó correctamente.  
+El programa permitió ingresar datos, calcular el puntaje de riesgo y mostrar el nivel de riesgo correspondiente.
+
+Qué aprendí:
+- Aprendí que la estructura del proyecto debe mantenerse clara y ordenada.
+- Aprendí que la carpeta src debe contener el código fuente principal del proyecto.
+- Aprendí que no conviene duplicar carpetas src ni crear una carpeta src diferente para cada versión.
+- Aprendí que GitHub sirve para registrar y verificar el avance técnico del proyecto.
+- Aprendí que MIRA v0.1 ya puede ejecutar una primera lógica simple de clasificación de riesgo.
+- Aprendí que antes de avanzar a una nueva versión conviene revisar, probar y documentar correctamente la versión anterior.
+- Aprendí que MIRA v0.2 debe avanzar hacia el trabajo con datos organizados, no solamente con datos ingresados manualmente.
+
+Estado actual:
+MIRA v0.1 ya cuenta con una estructura ordenada, documentación inicial, bitácora técnica y un primer archivo Python funcional.
+
+MIRA v0.1 funciona como un clasificador simple de riesgo de acumulación de agua basado en datos ingresados manualmente.
+
+Inicio de MIRA v0.2:
+La próxima versión se enfocará en el manejo inicial de datos climáticos simples.
+
+Objetivo inicial de MIRA v0.2:
+Crear un archivo CSV con datos climáticos de prueba y desarrollar un programa capaz de leer esos datos para analizarlos de forma básica.
+
+Próximos pasos:
+- Crear un archivo CSV de prueba en la carpeta data.
+- Incluir datos simples como fecha, zona, lluvia acumulada, humedad y temperatura.
+- Crear el archivo src/mira_v0_2.py.
+- Aprender a leer archivos CSV con Python.
+- Aplicar una lógica básica de clasificación de riesgo a varios registros climáticos.
+- Registrar los avances en el ResearchLog.
+- Guardar los cambios en GitHub mediante commit y push.
+
+Conclusión del día:
+Hoy MIRA avanzó desde una base inicial organizada hacia un primer funcionamiento real.  
+La versión v0.1 fue probada correctamente y el proyecto quedó preparado para comenzar MIRA v0.2, donde se empezará a trabajar con datos climáticos simples y organizados.
