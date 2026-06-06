@@ -156,3 +156,187 @@ Próximos pasos:
 Conclusión del día:
 Hoy MIRA avanzó desde una base inicial organizada hacia un primer funcionamiento real.  
 La versión v0.1 fue probada correctamente y el proyecto quedó preparado para comenzar MIRA v0.2, donde se empezará a trabajar con datos climáticos simples y organizados.
+
+
+## Día 3 - Profundización de condicionales y fortalecimiento de MIRA v0.1
+
+**Fecha:** 5 de junio de 2026
+
+### Objetivo del día
+
+Profundizar el estudio de estructuras condicionales, tipos de datos y lógica de clasificación en Python para fortalecer la versión inicial de MIRA antes de avanzar hacia MIRA v0.2.
+
+Aunque el próximo paso previsto era comenzar a trabajar con archivos CSV para MIRA v0.2, se decidió dedicar esta jornada a mejorar la comprensión del código base y hacer que MIRA v0.1 sea más sólida, clara y confiable.
+
+---
+
+### Qué hice
+
+Trabajé sobre la lógica inicial de MIRA v0.1, enfocándome en comprender mejor cómo el programa toma datos, los procesa y genera una clasificación de riesgo.
+
+Repasé y practiqué el uso de `input()` para solicitar información al usuario.
+
+Reforcé el uso de `float()` para convertir datos ingresados como texto en valores numéricos que puedan ser utilizados en cálculos.
+
+Estudié con mayor profundidad el funcionamiento de los condicionales `if`, `elif` y `else`.
+
+Analicé la importancia del orden de las condiciones, especialmente en casos donde se evalúan valores progresivos, como lluvia acumulada, humedad, temperatura y velocidad del viento.
+
+Comprendí que, cuando se usan condiciones como `> 50`, `> 40` y `> 30`, es necesario ordenar primero los valores más extremos para que Python evalúe correctamente el caso más grave.
+
+También trabajé sobre el uso de puntajes separados por variable climática, creando una lógica más ordenada para lluvia, humedad, temperatura y viento.
+
+Se agregó una estructura de puntajes parciales:
+
+```python
+puntaje_riesgo_lluvia = 0
+puntaje_riesgo_humedad = 0
+puntaje_riesgo_temperatura = 0
+puntaje_riesgo_viento = 0
+```
+
+Luego, cada variable climática suma su propio puntaje según las condiciones ingresadas.
+
+Después se calcula el puntaje total:
+
+```python
+puntaje_riesgo = puntaje_riesgo_lluvia + puntaje_riesgo_humedad + puntaje_riesgo_temperatura + puntaje_riesgo_viento
+```
+
+También se incorporaron alertas específicas para que el sistema no solo indique el nivel de riesgo general, sino que explique qué factor climático activó una alerta.
+
+Ejemplos de alertas trabajadas:
+
+* lluvia intensa y posible inundación;
+* alta humedad;
+* temperatura extremadamente alta;
+* temperatura extremadamente baja;
+* viento fuerte.
+
+Se agregó además un detalle del puntaje por categoría, para que el resultado sea más transparente y fácil de interpretar.
+
+---
+
+### Código trabajado
+
+El trabajo se realizó sobre la lógica base de MIRA v0.1, fortaleciendo el archivo principal del prototipo inicial.
+
+El programa actualmente solicita:
+
+* zona a analizar;
+* lluvia acumulada en milímetros;
+* humedad ambiente en porcentaje;
+* temperatura en grados Celsius;
+* velocidad del viento en km/h.
+
+A partir de esos datos, calcula puntajes parciales y un puntaje total de riesgo.
+
+Luego clasifica el nivel de riesgo como:
+
+* Bajo;
+* Moderado;
+* Alto;
+* Extremo.
+
+Finalmente, muestra una recomendación automática según el nivel de riesgo calculado.
+
+---
+
+### Pruebas realizadas
+
+Se probaron distintas tandas de datos para verificar que la lógica funcionara correctamente.
+
+Las pruebas incluyeron casos de:
+
+* riesgo bajo;
+* riesgo moderado;
+* riesgo alto;
+* riesgo extremo;
+* lluvia intensa;
+* humedad elevada;
+* frío extremo;
+* calor extremo;
+* viento fuerte;
+* casos límite con valores cercanos a los umbrales.
+
+El programa pasó correctamente las pruebas realizadas.
+
+---
+
+### Qué aprendí
+
+Aprendí que no alcanza con escribir condiciones, sino que también es importante pensar en el orden en que Python las evalúa.
+
+Aprendí que `input()` siempre devuelve texto, por lo que es necesario usar `float()` cuando se quiere trabajar con números.
+
+Aprendí que una lógica basada en puntajes permite representar mejor el riesgo que una lógica basada solamente en condiciones rígidas.
+
+Aprendí que separar el puntaje por variable hace que el programa sea más claro, más fácil de corregir y más parecido a un sistema real de análisis.
+
+Aprendí que MIRA no debe limitarse a decir “riesgo alto” o “riesgo bajo”, sino que también debe explicar por qué llega a ese resultado.
+
+Aprendí que antes de avanzar hacia una nueva versión grande conviene fortalecer bien la versión anterior.
+
+Aprendí que una actualización del código inicial no necesariamente significa una nueva versión principal. En este caso, el trabajo realizado corresponde a una mejora de MIRA v0.1, no todavía a MIRA v0.2.
+
+---
+
+### Estado actual
+
+MIRA v0.1 quedó más sólida que antes.
+
+El programa ahora cuenta con una lógica más clara de clasificación de riesgo, puntajes separados por variable climática, alertas específicas y detalle del puntaje final.
+
+Esta mejora puede considerarse una actualización interna de la versión inicial, por ejemplo:
+
+**MIRA v0.1.1 - Mejora de lógica condicional, tipos de datos y alertas específicas**
+
+Todavía no se comenzó formalmente MIRA v0.2, ya que se priorizó fortalecer la comprensión técnica y mejorar la calidad del código base.
+
+---
+
+### Decisión técnica del día
+
+Se decidió no avanzar todavía con archivos CSV ni con lectura de datos externos.
+
+La razón fue que antes de iniciar MIRA v0.2 era necesario comprender mejor los fundamentos de programación que sostienen el sistema:
+
+* tipos de datos;
+* entrada de datos;
+* conversión numérica;
+* condicionales;
+* comparación de valores;
+* suma de puntajes;
+* clasificación de riesgo;
+* recomendaciones automáticas.
+
+Esta decisión fortalece el proyecto porque evita avanzar demasiado rápido sin comprender bien la base.
+
+---
+
+### Próximos pasos
+
+Revisar nuevamente el código mejorado de MIRA v0.1.1.
+
+Guardar los cambios en GitHub mediante commit y push.
+
+Registrar esta actualización en el repositorio.
+
+Luego sí, comenzar MIRA v0.2 con el objetivo previsto:
+
+* crear un archivo CSV de prueba en la carpeta `data`;
+* incluir datos simples como fecha, zona, lluvia acumulada, humedad, temperatura y viento;
+* crear el archivo `src/mira_v0_2.py`;
+* aprender a leer archivos CSV con Python;
+* aplicar la lógica de clasificación de riesgo a varios registros climáticos;
+* comparar resultados entre distintas zonas o fechas.
+
+---
+
+### Conclusión del día
+
+Hoy MIRA no avanzó hacia una nueva versión grande, sino que fortaleció su base técnica.
+
+El trabajo del día fue importante porque permitió comprender mejor cómo funcionan los condicionales, los tipos de datos y la lógica de puntajes en Python.
+
+MIRA v0.1 ahora es más clara, más explicativa y más sólida. Esta base será necesaria para que MIRA v0.2 pueda construirse con mayor seguridad cuando se empiece a trabajar con archivos CSV y datos climáticos organizados.
