@@ -343,56 +343,38 @@ MIRA v0.1 ahora es más clara, más explicativa y más sólida. Esta base será 
 
 
 
-Día 4 - Diseño de la arquitectura modular de MIRA v0.2
+# Día 4 - Diseño de la arquitectura modular de MIRA v0.2
 
-Fecha: 12 de julio de 2026
+**Fecha:** 12 de julio de 2026
 
-Objetivo del día
+---
+
+# Objetivo del día
 
 Definir la arquitectura base de MIRA v0.2, diseñar la estructura modular del proyecto y preparar el repositorio para comenzar el desarrollo de un sistema capaz de procesar archivos CSV de forma organizada.
 
 Durante esta jornada no se implementó todavía la lógica de lectura de datos. El trabajo estuvo enfocado en construir una base sólida sobre la cual desarrollar las próximas funcionalidades de la versión v0.2.
 
-Qué hice
+---
 
-Revisé el alcance previsto para MIRA v0.2 y confirmé que esta versión estará orientada al procesamiento de múltiples registros ambientales almacenados en archivos CSV.
+# Qué hice
 
-Diseñé la arquitectura general del proyecto, definiendo la responsabilidad de cada módulo y el flujo de datos entre ellos.
+- Revisé el alcance definido para MIRA v0.2.
+- Analicé la arquitectura general del sistema antes de comenzar el desarrollo.
+- Estudié el concepto de modularidad en Python y la responsabilidad individual de cada módulo.
+- Comprendí cómo funcionan las importaciones (`import`) entre archivos Python.
+- Diseñé el flujo de control y el flujo de datos que seguirá el sistema.
+- Definí que **pipeline.py** será el coordinador central del procesamiento.
+- Reorganicé la estructura del código para separar la versión v0.2 dentro de su propia carpeta.
+- Creé la estructura inicial de módulos de MIRA v0.2.
+- Sincronicé correctamente el repositorio local con GitHub utilizando **git pull --rebase** para resolver diferencias entre el repositorio remoto y el local.
+- Realicé el commit y el push de la nueva arquitectura.
 
-Comprendí la diferencia entre un programa compuesto por un único archivo y una arquitectura modular basada en responsabilidades específicas.
+---
 
-Estudié el funcionamiento de las importaciones (import) en Python y cómo permiten que distintos módulos trabajen de forma coordinada.
+# Estructura creada
 
-Analicé el recorrido completo que seguirá un registro ambiental desde que es leído desde un archivo CSV hasta que se convierte en un resultado clasificado.
-
-Definí que la versión v0.2 utilizará un pipeline central encargado de coordinar el procesamiento de los datos.
-
-Se decidió reorganizar el código fuente creando una carpeta específica para la versión:
-
-src/mira_v0_2/
-
-Dentro de esta carpeta quedaron preparados los módulos principales del sistema:
-
-main.py
-pipeline.py
-io_csv.py
-validation.py
-risk_engine.py
-models.py
-config.py
-
-Durante la creación de la estructura surgió un inconveniente al sincronizar el repositorio con GitHub debido a que existían cambios remotos que aún no estaban presentes en la copia local.
-
-Se resolvió correctamente utilizando:
-
-git pull origin main --rebase
-
-Posteriormente se realizó el git push sin conflictos, dejando el repositorio completamente sincronizado.
-
-Arquitectura definida
-
-Se estableció la siguiente organización para MIRA v0.2:
-
+```text
 src/
 └── mira_v0_2/
     ├── main.py
@@ -402,62 +384,86 @@ src/
     ├── risk_engine.py
     ├── models.py
     └── config.py
+```
 
-Cada módulo tendrá una responsabilidad única:
+---
 
-main.py iniciará la aplicación.
-pipeline.py coordinará todo el procesamiento.
-io_csv.py realizará la lectura y escritura de archivos CSV.
-validation.py validará y convertirá los datos.
-risk_engine.py calculará el riesgo ambiental.
-models.py contendrá las estructuras de datos.
-config.py centralizará reglas, umbrales y configuraciones.
-Qué aprendí
+# Responsabilidad de cada módulo
 
-Aprendí que un proyecto comienza a crecer cuando cada archivo tiene una responsabilidad específica.
+| Módulo | Responsabilidad |
+|---------|-----------------|
+| **main.py** | Punto de entrada de la aplicación. |
+| **pipeline.py** | Coordina todo el procesamiento del sistema. |
+| **io_csv.py** | Lectura y escritura de archivos CSV. |
+| **validation.py** | Validación y conversión de datos. |
+| **risk_engine.py** | Cálculo del puntaje y nivel de riesgo. |
+| **models.py** | Definición de las estructuras de datos del sistema. |
+| **config.py** | Configuración central de reglas, columnas y umbrales. |
 
-Aprendí que una arquitectura modular hace que el código sea más fácil de mantener, probar y ampliar.
+---
 
-Comprendí que el pipeline no realiza cálculos, sino que coordina el trabajo de los distintos módulos.
+# Qué aprendí
 
-Aprendí que las importaciones permiten reutilizar funciones y clases definidas en otros archivos sin duplicar código.
+- Aprendí que un proyecto grande debe dividirse en módulos especializados.
+- Comprendí que cada módulo debe tener una única responsabilidad.
+- Aprendí que el pipeline coordina el proceso completo, pero no realiza los cálculos.
+- Comprendí la diferencia entre flujo de control y flujo de datos.
+- Aprendí que las importaciones permiten conectar módulos sin duplicar código.
+- Aprendí cómo resolver un conflicto de sincronización entre GitHub y el repositorio local utilizando **git pull --rebase**.
 
-Comprendí la diferencia entre el flujo de control (quién ejecuta cada paso) y el flujo de datos (cómo se transforma la información durante el procesamiento).
+---
 
-Aprendí que Git puede rechazar un push cuando el repositorio remoto contiene cambios que todavía no existen localmente y que esta situación puede resolverse integrando primero los cambios remotos mediante un pull --rebase.
+# Estado actual
 
-Estado actual
+✅ La arquitectura de MIRA v0.2 quedó completamente definida.
 
-MIRA v0.2 cuenta ahora con una arquitectura modular completamente definida.
+Actualmente el proyecto cuenta con:
 
-La estructura del proyecto quedó preparada para comenzar la implementación de la lectura de archivos CSV y del procesamiento de registros ambientales.
+- Arquitectura modular diseñada.
+- Estructura de carpetas creada.
+- Módulos principales preparados.
+- Repositorio sincronizado con GitHub.
+- Base lista para comenzar la implementación de la lectura de archivos CSV.
 
-Todavía no existe lógica implementada dentro de los módulos, pero la organización del código quedó establecida y lista para comenzar el desarrollo.
+Todavía no se implementó la lógica interna de cada módulo.
 
-Decisión técnica del día
+---
 
-Se decidió abandonar la idea inicial de concentrar toda la versión v0.2 en un único archivo.
+# Decisiones técnicas del día
 
-En su lugar, se adoptó una arquitectura basada en módulos especializados agrupados dentro de la carpeta src/mira_v0_2, lo que permitirá mantener el proyecto ordenado y facilitar la incorporación de nuevas funcionalidades en versiones futuras.
+Se decidió organizar la versión v0.2 dentro de la carpeta:
 
-También se decidió mantener una separación estricta de responsabilidades para evitar mezclar lectura de datos, validación, cálculos y configuración en un mismo archivo.
+```text
+src/mira_v0_2/
+```
 
-Próximos pasos
+en lugar de utilizar un único archivo `mira_v0_2.py`.
 
-Implementar la lectura de archivos CSV en io_csv.py.
+Esta decisión permitirá:
 
-Crear un archivo CSV de prueba dentro de la carpeta data.
+- mejorar la organización del código;
+- facilitar el mantenimiento del proyecto;
+- simplificar futuras ampliaciones;
+- respetar una arquitectura modular escalable.
 
-Implementar la validación básica de encabezados.
+También se decidió mantener una separación estricta de responsabilidades para evitar mezclar lectura de datos, validación, cálculo de riesgo y configuración en un mismo archivo.
 
-Construir las estructuras de datos en models.py.
+---
 
-Comenzar el desarrollo del pipeline de procesamiento.
+# Próximos pasos
 
-Conclusión del día
+- Implementar la lectura de archivos CSV.
+- Crear un archivo CSV de prueba.
+- Programar la validación de encabezados.
+- Implementar las estructuras de datos (`RegistroAmbiental` y `ResultadoRiesgo`).
+- Construir el pipeline de procesamiento.
 
-Hoy no se incorporaron nuevas funcionalidades visibles al sistema, pero se completó una de las tareas más importantes para el crecimiento del proyecto: definir su arquitectura.
+---
 
-La organización modular permitirá que MIRA evolucione de un programa sencillo hacia un sistema más escalable, donde cada componente tendrá una responsabilidad claramente definida.
+# Conclusión del día
 
-Con esta base, la siguiente etapa consistirá en comenzar la implementación del flujo de procesamiento de datos ambientales mediante archivos CSV.
+La jornada estuvo dedicada íntegramente al diseño de la arquitectura de MIRA v0.2.
+
+Aunque todavía no se desarrolló la lógica del sistema, se construyó una base sólida sobre la que se apoyarán todas las funcionalidades futuras.
+
+La versión v0.2 quedó preparada para comenzar la implementación del procesamiento de datos ambientales mediante archivos CSV, utilizando una arquitectura modular que facilitará el crecimiento del proyecto en versiones posteriores.
